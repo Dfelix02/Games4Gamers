@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gaming4Gamers</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="style.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if check_and_see_if_someone_is_logged_in? %>
+      <nav>
+        <%= @current_user.username %> <%= button_to "LOG OUT", logout_path, method: :delete %>
+      </nav>
+  <%else%>
+    <nav> 
+      <%= link_to "LOGIN", login_path %> | <%= link_to "NEW ACCOUNT", new_user_path %>
+    </nav>
+  <% end %>
+    <%= yield %>
+  </body>
+</html>

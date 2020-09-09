@@ -1,0 +1,17 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<% if @error %>
+    <p><%= @error %></p>
+<% end %>
+
+    
+    <%= form_tag "/login_form", class: "box" do %>
+        <h1>Welcome, please login</h1>
+        <%= label_tag :username %>
+        <%= text_field_tag :username %>
+        <%= label_tag :password %>
+        <%= password_field_tag :password %>
+        <%= submit_tag "Login!" %>
+    <% end %>
+

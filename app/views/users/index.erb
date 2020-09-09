@@ -1,0 +1,7 @@
+<%if @current_user.favorite_game == "God of War"%>
+    <%= render "GOW"%>
+<%elsif @current_user.favorite_game == "Warframe"%>
+    <%= render "Warframe"%>
+<%else%>
+    <%= render "LOL"%>
+<%end%>

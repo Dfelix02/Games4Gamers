@@ -1,0 +1,8 @@
+<%= form_for @user do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %> <br/>
+    <%= f.label :password %>
+    <%= f.password_field :password %><br/>
+    <%= f.select :favorite_game, ["God of War","League of Legends","Warframe"], prompt: "Choose your background"%><br/>
+    <%= f.submit "Submit" %>
+  <% end %>
