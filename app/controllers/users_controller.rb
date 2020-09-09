@@ -12,14 +12,14 @@ class UsersController < ApplicationController
     end
 
     def handle_login
-        @user = User.find_by(username: params[:username])
-        if @user && @user.authenticate(params[:password])
-        session[:user_id] = @user.id
-        redirect_to profile_path
-        else
-        flash[:error] = "Incorrect username or password"
-        redirect_to login_path
-        end
+            @user = User.find_by(username: params[:username])
+            if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id
+            redirect_to profile_path
+            else
+            flash[:error] = "Incorrect username or password"
+            redirect_to login_path
+            end
     end
 
     def logout
@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     end
 
     def new
+        
         if check_and_see_if_someone_is_logged_in?
             redirect_to profile_path
         else
@@ -44,12 +45,17 @@ class UsersController < ApplicationController
 
     
     def create
-    @user = User.create(user_params)
-        if @user.valid?
-            session[:user_id] = @user.id
-            redirect_to users_path
-        else 
-            flash[:errors] = @user.errors.full_messages
+        if params[:password] == params[:check_password]
+            @user = User.create(user_params)
+            if @user.valid?
+                session[:user_id] = @user.id
+                redirect_to users_path
+            else 
+                flash[:errors] = @user.errors.full_messages
+                redirect_to new_user_path
+            end
+        else
+            flash[:error] = "passwords don't match"
             redirect_to new_user_path
         end
     end
@@ -60,8 +66,12 @@ class UsersController < ApplicationController
 
 
     def update
-        @user.update(user_params)
-        redirect_to profile_path(@user)
+        if params[:password] == params[:check_password]
+            @user.update(user_params)
+            redirect_to profile_path(@user)
+        else
+            redirect_to profile_path(@user)
+        end
     end
 
     def destroy
