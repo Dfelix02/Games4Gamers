@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
     before_action :authorized_to_see_page
 
     def set_current_user
-        # INSTANCE VARIABLES IN A BEFORE ACTION IS AVAILABLE
         @current_user = User.find_by(id: session[:user_id])
     end
 
