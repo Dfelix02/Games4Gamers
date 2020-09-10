@@ -14,16 +14,20 @@
   <body>
   <div class="container">
     <% if check_and_see_if_someone_is_logged_in? %>
-      <nav>
-      <%= link_to "Home", users_path %>
-        <%= @current_user.username %> <%= button_to "LOG OUT", logout_path, method: :delete %>
-        <%= link_to "Profile", profile_path %> 
+      <nav class="navbar navbar-light bg-light">
+          <%= link_to "Home", users_path %>
+          <div class="inline">
+            <%= @current_user.username %>
+            <%= link_to "Profile", profile_path %> 
+            <%= button_to "LOG OUT", logout_path, method: :delete %>
+          </div>
       </nav>
     <%else%>
-      <nav> 
-        <%= link_to "LOGIN", login_path %> | <%= link_to "NEW ACCOUNT", new_user_path %>
+      <nav class="navbar" style="background-color: #191919;">
+        <%= link_to "LOGIN", login_path %>  <%= link_to "NEW ACCOUNT", new_user_path %>
       </nav>
     <% end %>
+    </hr>
     <%= yield %>
   </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
