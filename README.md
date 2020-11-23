@@ -6,6 +6,7 @@ Things to do before taking a look at it:
 
 
 -bundle install
+
 -rails s
 
 Made using ruby on rails. 
