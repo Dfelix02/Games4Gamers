@@ -6,6 +6,5 @@ Things to do before taking a look at it:
 -bundle install
 -rails s
 
-Demo
-
+Made using ruby on rails. 
 * ...
