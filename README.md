@@ -1,24 +1,11 @@
-# README
+# Gaming4Gamers 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is just a simple website taht displays videogames to the user.
 
-Things you may want to cover:
+Things to do before taking a look at it:
+-bundle install
+-rails s
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+Demo
 
 * ...
